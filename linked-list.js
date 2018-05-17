@@ -11,6 +11,7 @@ class LinkedList {
   }
 
   insertFirst(item) {
+    console.log("item",item)
     this.head = new _Node(item, this.head);
   }
 
@@ -20,6 +21,7 @@ class LinkedList {
     }
     else {
       let tempNode = this.head;
+      console.log("TempNode is here :",tempNode)
       while (tempNode.next !== null) {
         tempNode = tempNode.next;
       }
@@ -28,24 +30,22 @@ class LinkedList {
   }
 
   find(item) {
-    //start at the head
     let currNode = this.head;
-    //if the list is empty
+    console.log("currNode:",currNode)
     if (!this.head) {
       return null;
     }
-    //check for the item
+  
     while (currNode.value !== item) {
-      //return null if end of the list
-      //and the item is not on the list
+    
       if (currNode.next === null) {
         return null;
       } else {
-        //otherwise keep looking
+      
         currNode = currNode.next;
       }
     }
-    //found it
+  
     return currNode;
   }
 
@@ -60,9 +60,9 @@ class LinkedList {
     }
 
     let currNode = this.head;
-
+    console.log("currNode Say what!:",currNode)
     let previousNode = this.head;
-
+        console.log("bring it back with",previousNode)
     while ((currNode !== null) && (currNode.value !== item)) {
       previousNode = currNode;
       currNode = currNode.next;
@@ -74,3 +74,16 @@ class LinkedList {
     previousNode.next = currNode.next;
   }
 }
+ function main(){
+   const SLL = new LinkedList();
+   SLL.insertFirst("Apollo");
+   SLL.insertLast("Bommer");
+   SLL.insertLast("Helo");
+   SLL.insertLast("Husker");
+   SLL.insertLast("Starbuck");
+   SLL.insertLast("Tauhida")
+
+   console.log("Heres SLL",SLL)
+
+ }
+ main()
